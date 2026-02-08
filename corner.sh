@@ -109,12 +109,6 @@ apply_repo() { save_backup; sed -i "s|deb http://[^/]\+/kali|deb http://$1/kali|
 auto_update() { check_repos; [[ -n $best_repo ]] && apply_repo "$best_repo"; }
 manual_update() { for i in "${!REPOS[@]}"; do echo "$((i+1)). ${REPOS[$i]}"; done; read -p "Select repo: " n; [[ $n -ge 1 && $n -le ${#REPOS[@]} ]] && apply_repo "${REPOS[$((n-1))]}" || manual_update; }
 
-update_mirrorlist() {
-  echo "Updating MirrorList from official Kali server..."
-  save_backup
-  curl -sSL https://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/mirrorlist -o /etc/apt/sources.list
-  echo -e "${GREEN}MirrorList updated successfully!${NC}"
-}
 
 art_corner() {
   echo ""
@@ -134,8 +128,7 @@ main_menu() {
   echo "3. Check Mirror Status"
   echo "4. Backup sources.list"
   echo "5. Restore Backup"
-  echo "6. Update Mirrors [MirrorList]"
-  echo "7. Quit"
+  echo "6. Quit"
 }
 
 while true; do
@@ -149,8 +142,7 @@ while true; do
     3) check_repos ;;
     4) save_backup ;;
     5) restore_backup ;;
-    6) update_mirrorlist ;;
-    7) exit ;;
+    6) exit ;;
     *) echo "Invalid input" ;;
   esac
 done
