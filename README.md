@@ -1,5 +1,5 @@
 # Corner
-A smart mirror switcher for Kali Linux
+A smart mirror switcher for Kali Linux.
 
 ## How it works?
 This script updates your sources.list with the fastest available mirrors.
