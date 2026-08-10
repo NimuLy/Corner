@@ -13,7 +13,7 @@ Corner will refresh your mirror configuration using the official Kali MirrorList
 
 ### Run:
 ```
-curl -LO https://raw.githubusercontent.com/NimuLy/Corner/master/corner.sh
+curl -LO https://raw.githubusercontent.com/2nixx/Corner/master/corner.sh
 chmod +x corner.sh
 sudo ./corner.sh
 ```
